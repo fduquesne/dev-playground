@@ -6,7 +6,7 @@ import { PropsWithChildren, Suspense } from "react";
 
 type Props = PropsWithChildren<{ href: string }>;
 
-function NavLinkView({ children, href, active }: Props & { active?: boolean }) {
+function NavLinkView({ children, href, active }: Props & { active: boolean }) {
   return (
     <Link href={href} className={active ? "font-semibold" : ""}>
       {children}
