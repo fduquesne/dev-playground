@@ -16,14 +16,16 @@ export default async function UserPage({ params }: PageProps<"/users/[id]">) {
   const resPost = await fetch(
     `https://jsonplaceholder.typicode.com/users/${id}/posts`,
   );
-  if (!res.ok) throw new Error("Something went wrong");
+  if (!res.ok) throw new Error("Failed to fetch user's posts");
   const posts: Post[] = await resPost.json();
 
   return (
     <div>
-      <h1>
-        {user.name} - {user.email} - {user.phone}
-      </h1>
+      <h1>{user.name}</h1>
+
+      <p>
+        {user.email} - {user.phone}
+      </p>
 
       <div>Posts :</div>
       <ul>

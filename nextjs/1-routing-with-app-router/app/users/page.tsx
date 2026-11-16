@@ -6,6 +6,8 @@ export default async function UsersPage() {
   "use cache";
 
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  if (!res.ok) throw new Error("Failed to fetch users");
+
   const users: User[] = await res.json();
 
   return (
