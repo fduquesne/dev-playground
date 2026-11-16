@@ -10,6 +10,8 @@ export default async function UserPage({ params }: PageProps<"/users/[id]">) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
   if (!res.ok) notFound();
 
+  // throw new Error("Boom !");
+
   const user: User = await res.json();
   return (
     <h1>
