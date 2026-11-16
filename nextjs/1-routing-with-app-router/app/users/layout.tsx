@@ -1,5 +1,3 @@
-"use client";
-
 import NavLink from "./_components/nav-link";
 
 export default function LayoutUsers({ children }: LayoutProps<"/users">) {
