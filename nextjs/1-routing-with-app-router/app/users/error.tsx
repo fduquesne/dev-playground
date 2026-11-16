@@ -1,13 +1,12 @@
 "use client";
 
-import { ErrorProps } from "next/error";
 import { useEffect } from "react";
 
-export default async function ErrorUsersPage({
+export default function ErrorUsersPage({
   error,
   reset,
 }: {
-  error: unknown;
+  error: Error & { digest?: string };
   reset: () => void;
 }) {
   useEffect(() => console.log(error), [error]);
