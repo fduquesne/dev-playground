@@ -11,13 +11,13 @@ export default async function UsersPage() {
   return (
     <ul className="*:mb-2">
       {users.map((u) => (
-        <Link key={u.id} href={`/users/${u.id}`}>
-          <li className="flex items-center gap-4">
+        <li key={u.id} className="flex items-center gap-4">
+          <Link href={`/users/${u.id}`}>
             <span>
               {u.name} - {u.email}
             </span>
-          </li>
-        </Link>
+          </Link>
+        </li>
       ))}
     </ul>
   );
