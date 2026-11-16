@@ -1,5 +1,5 @@
 import { getWork } from "@/lib/open-library";
-import { Suspense } from "react";
+import ExpandableText from "./_components/expandable-text";
 
 export default async function WorkBookPage({
   params,
@@ -15,6 +15,9 @@ export default async function WorkBookPage({
   return (
     <div>
       <h1>{work.title}</h1>
+
+      <ExpandableText description={work.description} />
+
       <img
         src={`https://covers.openlibrary.org/b/id/${work.covers[0]}-L.jpg`}
       />
