@@ -16,7 +16,11 @@ export default function Tabs({ tabs }: TabsProps) {
             key={tab.label}
             role="tab"
             aria-selected={index === active}
-            className="cursor-pointer"
+            className={
+              index === active
+                ? "font-semibold border-b-2 cursor-pointer"
+                : "cursor-pointer"
+            }
             onClick={() => setActive(index)}
           >
             {tab.label}

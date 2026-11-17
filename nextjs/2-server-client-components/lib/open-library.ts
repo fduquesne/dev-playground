@@ -1,6 +1,6 @@
 import "server-only";
 
-const API = "https://openlibrary.org/";
+const API = "https://openlibrary.org";
 
 type RawWork = {
   title: string;
@@ -35,7 +35,7 @@ export async function getWork(id: string): Promise<Work | null> {
   };
 }
 
-export async function getEditions(id: string) {
+export async function getEditions(id: string): Promise<Edition[]> {
   "use cache";
   const res = await fetch(`${API}/works/${id}/editions.json`);
   if (!res.ok) throw new Error(`Open Library: failed to editions of ${id}`);

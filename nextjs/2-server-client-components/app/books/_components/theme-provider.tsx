@@ -23,12 +23,11 @@ export default function ThemeProvider({ children }: PropsWithChildren) {
   };
 
   useEffect(() => {
-    setTheme((localStorage.getItem(LS_THEME) as Theme) ?? "light");
+    const saved = localStorage.getItem(LS_THEME);
+    if (saved === "light" || saved === "dark") {
+      localStorage.setItem(LS_THEME, saved);
+    }
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem(LS_THEME, theme);
-  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
