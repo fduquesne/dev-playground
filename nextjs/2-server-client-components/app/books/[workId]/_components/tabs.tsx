@@ -10,10 +10,12 @@ export default function Tabs({ tabs }: TabsProps) {
 
   return (
     <div>
-      <div className="flex items-center gap-4 border-b">
+      <div className="flex items-center gap-4 border-b" role="tablist">
         {tabs.map((tab, index) => (
           <button
             key={tab.label}
+            role="tab"
+            aria-selected={index === active}
             className="cursor-pointer"
             onClick={() => setActive(index)}
           >
