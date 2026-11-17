@@ -19,14 +19,14 @@ export default function ThemeProvider({ children }: PropsWithChildren) {
   const [theme, setTheme] = useState<Theme>("light");
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    const next = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    localStorage.setItem(LS_THEME, next);
   };
 
   useEffect(() => {
     const saved = localStorage.getItem(LS_THEME);
-    if (saved === "light" || saved === "dark") {
-      localStorage.setItem(LS_THEME, saved);
-    }
+    if (saved === "light" || saved === "dark") setTheme(saved);
   }, []);
 
   return (
