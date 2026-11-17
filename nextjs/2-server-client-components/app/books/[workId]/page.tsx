@@ -19,7 +19,7 @@ export default async function WorkBookPage({
     <div>
       <h1>{work.title}</h1>
 
-      {work.coverId && (
+      {work.coverId !== null && (
         <img
           alt={work.title}
           src={`https://covers.openlibrary.org/b/id/${work.coverId}-L.jpg`}

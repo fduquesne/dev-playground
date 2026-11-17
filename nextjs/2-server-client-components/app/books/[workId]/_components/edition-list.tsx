@@ -1,7 +1,7 @@
 "use client";
 
 import { use, useState } from "react";
-import { Edition } from "@/lib/open-library";
+import type { Edition } from "@/lib/open-library";
 
 type EditionListProps = { editionsPromise: Promise<Edition[]> };
 export default function EditionList({ editionsPromise }: EditionListProps) {

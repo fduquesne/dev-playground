@@ -6,7 +6,7 @@ type ExpandableTextProps = { description: string | null };
 export default function ExpandableText({ description }: ExpandableTextProps) {
   const [isFull, setIsFull] = useState<boolean>(false);
 
-  if (!description) return <></>;
+  if (!description) return null;
   return (
     <div>
       {description.length > 300 ? (
