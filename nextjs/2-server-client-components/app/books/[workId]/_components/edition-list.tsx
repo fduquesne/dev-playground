@@ -1,8 +1,9 @@
 "use client";
 
 import { use, useState } from "react";
+import { Edition } from "@/lib/open-library";
 
-type EditionListProps = { editionsPromise: Promise<{ entries: any[] }> };
+type EditionListProps = { editionsPromise: Promise<Edition[]> };
 export default function EditionList({ editionsPromise }: EditionListProps) {
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const editions = use(editionsPromise);
@@ -19,20 +20,12 @@ export default function EditionList({ editionsPromise }: EditionListProps) {
       </label>
 
       <ul>
-        {editions.entries
+        {editions
           .filter((edition) =>
-            isChecked
-              ? edition.languages
-                  ?.map((l: any) => l.key)
-                  .includes("/languages/fre")
-              : true,
+            isChecked ? edition.languages.includes("/languages/fre") : true,
           )
           .map((edition) => (
-            <li
-              key={`${edition.title}-${edition.publish_date}-${edition.created.value}`}
-            >
-              {edition.title}
-            </li>
+            <li key={edition.key}>{edition.title}</li>
           ))}
       </ul>
     </div>

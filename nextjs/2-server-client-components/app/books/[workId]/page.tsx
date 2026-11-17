@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { notFound } from "next/navigation";
 import { getEditions, getWork } from "@/lib/open-library";
 import ExpandableText from "./_components/expandable-text";
 import Tabs from "./_components/tabs";
@@ -7,22 +8,23 @@ import EditionList from "./_components/edition-list";
 export default async function WorkBookPage({
   params,
 }: PageProps<"/books/[workId]">) {
-  "use cache";
-
   const { workId } = await params;
 
   const work = await getWork(workId);
-  const editionsPromise = getEditions(workId);
+  if (!work) notFound();
 
-  console.log(work);
+  const editionsPromise = getEditions(workId);
 
   return (
     <div>
       <h1>{work.title}</h1>
 
-      <img
-        src={`https://covers.openlibrary.org/b/id/${work.covers[0]}-L.jpg`}
-      />
+      {work.coverId && (
+        <img
+          alt={work.title}
+          src={`https://covers.openlibrary.org/b/id/${work.coverId}-L.jpg`}
+        />
+      )}
 
       <Tabs
         tabs={[
@@ -33,7 +35,7 @@ export default async function WorkBookPage({
           {
             label: "Editions",
             content: (
-              <Suspense>
+              <Suspense fallback={<p>Chargement des editions...</p>}>
                 <EditionList editionsPromise={editionsPromise} />
               </Suspense>
             ),
