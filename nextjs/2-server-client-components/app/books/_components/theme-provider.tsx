@@ -1,11 +1,19 @@
 "use client";
 
-import { createContext, PropsWithChildren, useContext, useState } from "react";
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+
+const LS_THEME = "theme";
 
 type Theme = "light" | "dark";
-type ThemeContextValue = { theme: Theme; toggleTheme?: () => void };
+type ThemeContextValue = { theme: Theme; toggleTheme: () => void };
 
-export const ThemeContext = createContext<ThemeContextValue | null>(null);
+const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export default function ThemeProvider({ children }: PropsWithChildren) {
   const [theme, setTheme] = useState<Theme>("light");
@@ -13,6 +21,14 @@ export default function ThemeProvider({ children }: PropsWithChildren) {
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
+
+  useEffect(() => {
+    setTheme((localStorage.getItem(LS_THEME) as Theme) ?? "light");
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LS_THEME, theme);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
