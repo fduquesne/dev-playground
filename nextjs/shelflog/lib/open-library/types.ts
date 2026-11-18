@@ -1,17 +1,11 @@
-export type RawWork = {
+export interface RawTrendWork {
+  key: string;
   title: string;
-  description?: string | { type: string; value: string };
-  covers?: number[];
-};
+  author_name: string[];
+}
 
-export type RawEditions = {
-  entries: { key: string; title: string; languages?: { key: string }[] }[];
-};
-
-export type Work = {
+export interface TrendWork {
+  id: string;
   title: string;
-  description: string | null;
-  coverId: number | null;
-};
-
-export type Edition = { key: string; title: string; languages: string[] };
+  authorName: string[];
+}
