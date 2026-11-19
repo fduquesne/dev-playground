@@ -1,10 +1,10 @@
-export interface RawTrendWork {
+export interface RawWork {
   key: string;
   title: string;
   author_name: string[];
 }
 
-export interface TrendWork {
+export interface Work {
   id: string;
   title: string;
   authorName: string[];

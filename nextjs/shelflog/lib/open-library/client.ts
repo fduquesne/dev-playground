@@ -1,6 +1,6 @@
 import "server-only";
 
-import { RawTrendWork, TrendWork } from "./types";
+import { RawWork, Work } from "./types";
 import { mapRawToWork } from "@/helpers/work.helper";
 
 const API = "https://openlibrary.org";
@@ -37,13 +37,13 @@ const API = "https://openlibrary.org";
 //   }));
 // }
 
-export async function getTrends(): Promise<TrendWork[]> {
+export async function getTrends(): Promise<Work[]> {
   "use cache";
 
   const res = await fetch(`${API}/trending/daily.json`);
   if (!res.ok) throw new Error("Open Library: failed to fetch trends");
 
   const raw = await res.json();
-  const rawWorks: RawTrendWork[] = raw.works;
+  const rawWorks: RawWork[] = raw.works;
   return rawWorks.map(mapRawToWork);
 }

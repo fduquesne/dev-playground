@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from "./_layouts/header";
+import Header from "./_layouts/header/header";
 
 import "./globals.css";
 
@@ -27,8 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <Header />
-
-        {children}
+        <div className="w-300 mx-auto pt-16 pb-10">{children}</div>
       </body>
     </html>
   );
