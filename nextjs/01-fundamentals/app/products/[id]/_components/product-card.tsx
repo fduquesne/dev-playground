@@ -5,7 +5,7 @@ interface ProductCardProps {
   product: Product;
 }
 
-export default async function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="w-100 p-6 rounded-xl bg-neutral-700">
       <div className="text-neutral-400 text-xs">Product #{product.id}</div>
