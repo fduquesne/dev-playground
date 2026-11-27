@@ -1,4 +1,5 @@
 import { Product } from "@/app/_types/product.type";
+import LikeButton from "./like-button";
 
 interface ProductCardProps {
   product: Product;
@@ -10,6 +11,9 @@ export default async function ProductCard({ product }: ProductCardProps) {
       <div className="text-neutral-400 text-xs">Product #{product.id}</div>
       <h2>{product.name}</h2>
       <div>€{product.price}</div>
+      <div className="mt-4">
+        <LikeButton />
+      </div>
     </div>
   );
 }
