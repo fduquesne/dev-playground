@@ -5,14 +5,14 @@ interface NavItem {
   label: string;
 }
 
-export default function Header() {
-  const navItems: NavItem[] = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/products/1", label: "Product 1" },
-    { href: "/products/2", label: "Product 2" },
-  ];
+const navItems: NavItem[] = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/products/1", label: "Product 1" },
+  { href: "/products/2", label: "Product 2" },
+];
 
+export default function Header() {
   return (
     <header className="flex items-center h-20 border-b border-neutral-700">
       <div className="flex flex-1 items-center h-full px-10">
@@ -20,7 +20,7 @@ export default function Header() {
       </div>
 
       <nav className="flex items-center h-full px-10">
-        <ul className="flex items-center last:mr-0">
+        <ul className="flex items-center">
           {navItems.map((navItem) => (
             <li key={navItem.href}>
               <Link
