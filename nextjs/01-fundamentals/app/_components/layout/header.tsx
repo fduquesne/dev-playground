@@ -9,17 +9,37 @@ export default function Header() {
 
       <nav className="flex items-center h-full px-10">
         <ul className="flex items-center *:mx-2 last:mr-0">
-          <li className="py-1 px-3 rounded-md cursor-pointer">
-            <Link href="/">Home</Link>
+          <li>
+            <Link
+              className="py-1 px-3 rounded-md hover:bg-neutral-700 cursor-pointer"
+              href="/"
+            >
+              Home
+            </Link>
           </li>
-          <li className="py-1 px-3 rounded-md cursor-pointer">
-            <Link href="/about">About</Link>
+          <li>
+            <Link
+              className="py-1 px-3 rounded-md hover:bg-neutral-700 cursor-pointer"
+              href="/about"
+            >
+              About
+            </Link>
           </li>
-          <li className="py-1 px-3 rounded-md cursor-pointer">
-            <Link href="/products/1">Product 1</Link>
+          <li>
+            <Link
+              className="py-1 px-3 rounded-md hover:bg-neutral-700 cursor-pointer"
+              href="/products/1"
+            >
+              Product 1
+            </Link>
           </li>
-          <li className="py-1 px-3 rounded-md cursor-pointer">
-            <Link href="/products/2">Product 2</Link>
+          <li>
+            <Link
+              className="py-1 px-3 rounded-md hover:bg-neutral-700 cursor-pointer"
+              href="/products/2"
+            >
+              Product 2
+            </Link>
           </li>
         </ul>
       </nav>
