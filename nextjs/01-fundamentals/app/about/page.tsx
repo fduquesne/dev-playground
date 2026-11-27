@@ -1,4 +1,4 @@
-import Page from "../_components/layout/page";
+import Page from "@/app/_components/layout/page";
 
 export default function AboutPage() {
   return (
