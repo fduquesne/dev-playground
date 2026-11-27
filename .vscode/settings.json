@@ -1,0 +1,24 @@
+{
+  // Formatting
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // Deno: only enable the Deno language server in the deno/ folder,
+  // so it does not conflict with TypeScript in nextjs/
+  "deno.enablePaths": ["deno"],
+
+  // Hide noise in the explorer and search
+  "files.exclude": {
+    "**/.next": true,
+    "**/node_modules": true
+  },
+  "search.exclude": {
+    "**/.next": true,
+    "**/node_modules": true,
+    "**/deno.lock": true,
+    "**/package-lock.json": true
+  }
+}
