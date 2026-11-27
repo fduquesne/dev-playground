@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Header from "./_components/layout/header";
 import "./globals.css";
 
+export const instant = false;
+
 export const metadata: Metadata = {
   title: "01 Fundamentals",
 };
