@@ -1,4 +1,4 @@
-import { Product } from "@/app/_types/product.type";
+import { Product } from "@/types/product.type";
 import LikeButton from "./like-button";
 
 interface ProductCardProps {
